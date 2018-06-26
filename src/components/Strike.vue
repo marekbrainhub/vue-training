@@ -1,6 +1,6 @@
 <template>
   <span
-    :class="{ red: order <= strikes }"
+    :class="{ red: active }"
   >
     ✖
   </span>
@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  props: ['order'],
+  props: ['active'],
   data() {
     return {
 

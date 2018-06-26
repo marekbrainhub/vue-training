@@ -3,20 +3,21 @@
     <h1>Hangman</h1>
 
     <div class="strikes">
-      <span
-        v-for="i in maxStrikes"
-        :key="i"
-        :id="i"
-        :class="{ red: i <= strikes }"
-      >
-        ✖
-      </span>
+      <Strike v-for="i in maxStrikes" :key="i" :active="isActive(i)" />
     </div>
   </div>
 </template>
 
 <script>
+import Strike from './Strike'
+
 export default {
+  components: { Strike },
+  methods: {
+    isActive(i) {
+      return i <= this.strikes ? true : false;
+    }
+  },
   data() {
     return {
       strikes: 2,
@@ -31,7 +32,4 @@ export default {
   text-align center
   font-size 5rem
   user-select none
-
-.red
-  color darken(red, 30%)
 </style>
