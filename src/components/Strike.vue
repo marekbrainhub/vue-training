@@ -2,16 +2,23 @@
   <span
     :class="{ red: active }"
   >
-    ✖
+    ✖ 
   </span>
 </template>
 
 <script>
+import store from '@/store'
+
 export default {
-  props: ['active'],
+  props: ['order'],
+  computed: {
+    active() {
+      return this.order <= this.store.strikes ? true : false
+    },
+  },
   data() {
     return {
-
+      store
     };
   },
 };

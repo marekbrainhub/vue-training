@@ -2,26 +2,21 @@
   <div>
     <h1>Hangman</h1>
 
-    <div class="strikes">
-      <Strike v-for="i in maxStrikes" :key="i" :active="isActive(i)" />
+    <div class="strikes" @click="store.strikes++">
+      <Strike v-for="i in store.maxStrikes" :key="i" :order="i" />
     </div>
   </div>
 </template>
 
 <script>
 import Strike from './Strike'
+import store from '@/store'
 
 export default {
   components: { Strike },
-  methods: {
-    isActive(i) {
-      return i <= this.strikes ? true : false;
-    }
-  },
   data() {
     return {
-      strikes: 2,
-      maxStrikes: 5,
+      store,
     };
   },
 };
