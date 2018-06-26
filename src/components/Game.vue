@@ -17,6 +17,8 @@
 
     <h1 v-if="checkWin()">You won!</h1>
     <h1 v-if="checkLose()">You lost!</h1>
+    <h2 v-if="checkLose()">The word was {{ store.word }}</h2>
+    <button @click='resetGame()'>Reset</button>
   </div>
 </template>
 
@@ -64,6 +66,12 @@ export default {
       } else {
         return false;
       }
+    },
+    resetGame() {
+      this.store.word = 'Hangman';
+      this.store.guessedLetters = [];
+      this.store.strikes = 0;
+      this.$router.push('/');
     }
   },
   data() {
