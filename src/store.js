@@ -1,4 +1,6 @@
 export default {
-  strikes: 1,
+  word: 'hangman',
+  guessedLetters: [],
+  strikes: 0,
   maxStrikes: 5,
 }
