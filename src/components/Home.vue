@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <h1>{{ store.word }}</h1>
+    <h1>{{ encodeWord() }}</h1>
 
     <div class="keyboard">
       <Key 
@@ -14,6 +14,9 @@
     <div class="strikes" @click="store.strikes++">
       <Strike v-for="i in store.maxStrikes" :key="i" :order="i" />
     </div>
+
+    <h1 v-if="checkWin()">You won!</h1>
+    <h1 v-if="checkLose()">You lost!</h1>
   </div>
 </template>
 
@@ -33,11 +36,35 @@ export default {
   components: { Strike, Key },
   methods: {
     checkLetter(letter) {
-      this.store.guessedLetters.push(letter)
+      if(!this.guessed(letter)) {
+        this.store.guessedLetters.push(letter)
+        if(!this.store.word.toLowerCase().includes(letter)) {
+          this.store.strikes++
+        }
+      }
     },
     guessed(letter) {
       return this.store.guessedLetters.includes(letter)
     },
+    encodeWord() {
+      return this.store.word.toLowerCase().split('').map(letter => {
+        return this.store.guessedLetters.includes(letter) ? letter : '_'
+      }).join('')
+    },
+    checkLose() {
+      if(this.store.strikes >= this.store.maxStrikes) {
+        return true
+      } else {
+        return false;
+      }
+    },
+    checkWin() {
+      if(!this.encodeWord().includes('_')) {
+        return true;
+      } else {
+        return false;
+      }
+    }
   },
   data() {
     return {
@@ -56,6 +83,7 @@ export default {
 
 h1
   font-size 5rem
+  letter-spacing 4px
 
 .wrapper
   display flex
