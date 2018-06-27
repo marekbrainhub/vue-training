@@ -15,8 +15,10 @@
       <Strike v-for="i in store.maxStrikes" :key="i" :order="i" />
     </div>
 
-    <h1 v-if="checkWin()">You won!</h1>
-    <h1 v-if="checkLose()">You lost!</h1>
+    <transition name='bounce'>
+      <h1 v-if="checkWin()">You won!</h1>
+      <h1 v-if="checkLose()">You lost!</h1>
+    </transition>
     <h2 v-if="checkLose()">The word was {{ store.word }}</h2>
     <button @click='resetGame()'>Reset</button>
   </div>
@@ -109,4 +111,11 @@ h1
   text-align center
   font-size 5rem
   user-select none
+
+.bounce-enter, .bounce-leave-to
+  opacity 0
+  transform translateY(30px) rotateZ(90deg)
+
+.bounce-enter-active, .bounce-leave-active
+  transition all .3s ease-in-out
 </style>
