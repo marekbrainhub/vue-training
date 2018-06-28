@@ -18,25 +18,25 @@
 </template>
 
 <script>
-import Strike from './Strike'
-import Key from './Key'
+import Strike from './Strike';
+import Key from './Key';
 
-import store from '@/store'
+import store from '@/store';
 
 function generateAlphabet() {
   return [...Array(26)].map((_, i) => {
-    return String.fromCharCode(97 + i)
-  })
+    return String.fromCharCode(97 + i);
+  });
 }
 
 export default {
   components: { Strike, Key },
   methods: {
     checkLetter(letter) {
-      this.store.guessedLetters.push(letter)
+      this.store.guessedLetters.push(letter);
     },
     guessed(letter) {
-      return this.store.guessedLetters.includes(letter)
+      return this.store.guessedLetters.includes(letter);
     },
   },
   data() {
