@@ -12,6 +12,14 @@ module.exports = {
 		'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
 		'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
 	},
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.vue'],
+        alias: { '@': 'src' }
+      },
+    }
+  },
 	parserOptions: {
 		parser: 'babel-eslint'
 	}
