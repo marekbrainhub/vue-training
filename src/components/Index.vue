@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import store from '@/store'
-import words from '@/assets/words'
+import store from '@/store';
+import words from '@/assets/words';
 
 export default {
   methods: {

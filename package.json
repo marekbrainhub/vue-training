@@ -16,6 +16,7 @@
     "@vue/cli-plugin-eslint": "^3.0.0-beta.15",
     "@vue/cli-service": "^3.0.0-beta.15",
     "eslint-config-brainhub": "^1.8.1",
+    "eslint-import-resolver-webpack": "^0.10.1",
     "eslint-plugin-vue": "^4.5.0",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
