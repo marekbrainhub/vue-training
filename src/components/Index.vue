@@ -12,9 +12,9 @@
 </template>
 
 <script>
-import store from '@/store'
+import store from '../store';
 
-const HANGMAN_WORDS = 'https://raw.githubusercontent.com/Xethron/Hangman/master/words.txt'
+const HANGMAN_WORDS = 'https://raw.githubusercontent.com/Xethron/Hangman/master/words.txt';
 
 let words = [];
 
@@ -23,9 +23,9 @@ export default {
     fetch(HANGMAN_WORDS)
       .then(res => res.text())
       .then(text => {
-        words = text.split('\n')
+        words = text.split('\n');
       })
-      .then(this.load)
+      .then(this.load);
   },
   methods: {
     startRandomGame() {
