@@ -7,13 +7,13 @@
 </template>
 
 <script>
-import store from '@/store'
+import store from '../store';
 
 export default {
   props: ['order'],
   computed: {
     active() {
-      return this.order <= this.store.strikes ? true : false
+      return this.order <= this.store.strikes ? true : false;
     },
   },
   data() {

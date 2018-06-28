@@ -853,4 +853,4 @@ export default [
 	"Bernhard",
 	"Breytenbach",
 	"Android"
-]
+];
