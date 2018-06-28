@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import Strike from './Strike'
-import store from '@/store'
+import Strike from './Strike';
+import store from '@/store';
 
 export default {
   components: { Strike },
