@@ -21,15 +21,15 @@
 </template>
 
 <script>
-import Strike from './Strike'
-import Key from './Key'
+import Strike from './Strike';
+import Key from './Key';
 
-import store from '@/store'
+import store from '@/store';
 
 function generateAlphabet() {
   return [...Array(26)].map((_, i) => {
-    return String.fromCharCode(97 + i)
-  })
+    return String.fromCharCode(97 + i);
+  });
 }
 
 export default {
@@ -37,23 +37,23 @@ export default {
   methods: {
     checkLetter(letter) {
       if(!this.guessed(letter)) {
-        this.store.guessedLetters.push(letter)
+        this.store.guessedLetters.push(letter);
         if(!this.store.word.toLowerCase().includes(letter)) {
-          this.store.strikes++
+          this.store.strikes++;
         }
       }
     },
     guessed(letter) {
-      return this.store.guessedLetters.includes(letter)
+      return this.store.guessedLetters.includes(letter);
     },
     encodeWord() {
       return this.store.word.toLowerCase().split('').map(letter => {
-        return this.store.guessedLetters.includes(letter) ? letter : '_'
-      }).join('')
+        return this.store.guessedLetters.includes(letter) ? letter : '_';
+      }).join('');
     },
     checkLose() {
       if(this.store.strikes >= this.store.maxStrikes) {
-        return true
+        return true;
       } else {
         return false;
       }
